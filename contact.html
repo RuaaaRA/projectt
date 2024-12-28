@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Perfume Store</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            border: 5px solid #b76e79; /* Pink border */
+
+        }
+
+        /* Header Section */
+        header {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 5px solid #b76e79; /* Pink border */
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            padding: 10px 15px; /* Adding padding for better button appearance */
+            border-radius: 5px; /* Rounded corners for the buttons */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transitions */
+        }
+
+        nav ul li a:hover {
+            color: #fff; /* Change text color on hover */
+            background-color: #b76e79; /* Change background color on hover */
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+
+
+        /* Contact Us Form Section */
+        .contact-form-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .contact-form-container label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .contact-form-container input, 
+        .contact-form-container textarea,
+        .contact-form-container select {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-form-container input:focus, 
+        .contact-form-container textarea:focus,
+        .contact-form-container select:focus {
+            border-color: #b76e79;
+            outline: none;
+            transform: scale(1.05);
+        }
+
+        .contact-form-container textarea {
+            height: 120px;
+        }
+
+        .contact-form-container button {
+            width: 100%;
+            padding: 15px;
+            background-color: #b76e79;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .contact-form-container button:hover {
+            background-color: #a55a64;
+            transform: scale(1.05);
+        }
+
+        .form-error {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .confirmation-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: #4caf50;
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #b76e79;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 4px solid #b76e79; /* زيادة سمك الحد ليظهر بشكل أكثر وضوحًا */
+    padding-bottom: 5px; /* زيادة الحشو أسفل النص لتحسين ظهور الحد */
+    font-weight: bold; /* جعل النص عريضًا لجذب الانتباه */
+    transition: color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s; /* تأثيرات انتقالية سلسة */
+}
+
+a:hover {
+    color: #fff; /* تغيير لون النص إلى الأبيض لتوفير تباين أفضل */
+    background-color: #b76e79; /* تغيير الخلفية إلى اللون الوردي عند التمرير */
+    border-bottom: 4px solid #9a5b65; /* جعل الحدود أكثر وضوحًا مع لون أغمق عند التمرير */
+    transform: translateY(-3px); /* إضافة تأثير رفع بسيط لإبراز الرابط */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل للصندوق لإظهاره بشكل أكبر */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    white-space: nowrap; /* يمنع النص من الالتفاف */
+}
+
+.confirmation-message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #4caf50;
+    display: none; /* الرسالة تكون مخفية افتراضياً */
+    padding: 15px;
+    background-color: #e8f5e9;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.contact-form-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #b76e79; /* اللون الزهري */
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* تأثير دخول الرسالة */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+@media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+        }
+        .contact-form-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #b76e79; /* تغيير اللون إلى اللون الزهري */
+}
+
+
+    </style>
+
+
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="https://png.pngtree.com/png-vector/20240129/ourmid/pngtree-pink-bottle-of-perfume-png-image_11513995.png" alt="Perfume Logo" style="width: 100px; height: 100px; margin-right: 15px;">
+                <span style="font-size: 3rem; font-weight: bold; color: #b76e79;">Perfume Store</span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Us Form Section -->
+    <section class="contact-form-container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" required>
+            <div id="firstNameError" class="form-error"></div>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" required>
+            <div id="lastNameError" class="form-error"></div>
+
+            <label for="mobile">Mobile</label>
+            <input type="tel" id="mobile" name="mobile" required>
+            <div id="mobileError" class="form-error"></div>
+
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+            <div id="addressError" class="form-error"></div>
+
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required>
+            <div id="ageError" class="form-error"></div>
+
+            <label for="hobbies">Hobbies</label>
+            <textarea id="hobbies" name="hobbies" required></textarea>
+            <div id="hobbiesError" class="form-error"></div>
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="">Select Country</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="India">India</option>
+                <option value="Canada">Canada</option>
+            </select>
+            <div id="countryError" class="form-error"></div>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <div id="emailError" class="form-error"></div>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+            <div id="messageError" class="form-error"></div>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="confirmationMessage" class="confirmation-message"></div>
+    </section>
+
+    <!-- Footer Section -->
+   <!-- Footer -->
+<footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 30px;">
+    <div style="margin-bottom: 15px;">
+        <p style="margin: 5px 0;">📍 Address: 123 Fragrance Lane, New York, NY 10001</p>
+        <p style="margin: 5px 0;">📞 Phone: +1 (123) 456-7890</p>
+        <p style="margin: 5px 0;">✉️ Email: <a href="mailto:support@perfumestore.com" style="color: #b76e79; text-decoration: none;">support@perfumestore.com</a></p>
+    </div>
+    <div>
+        <a href="https://facebook.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://www.freeiconspng.com/uploads/vector-logos-high-resolution-logos-logo-designs-facebook-icon-vector-6.png" alt="Facebook" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://twitter.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.x3D8JgIPCemZ5VSA8QQU0AHaHa&pid=Api&P=0&h=220" alt="Twitter" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://instagram.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://www.pngkey.com/png/full/283-2831746_insta-icon-instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+        </a>
+       
+    </div>
+    <div style="margin-top: 15px; border-top: 1px solid #444; padding-top: 10px;">
+        <p>&copy; 2024 Perfume Store. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+        // Form Validation
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let isValid = true;
+
+            // Reset previous error messages
+            document.querySelectorAll('.form-error').forEach(function(el) {
+                el.textContent = '';
+            });
+
+            // First Name Validation
+            if (document.getElementById('firstName').value.trim() === '') {
+                document.getElementById('firstNameError').textContent = 'First name is required.';
+                isValid = false;
+            }
+
+            // Last Name Validation
+            if (document.getElementById('lastName').value.trim() === '') {
+                document.getElementById('lastNameError').textContent = 'Last name is required.';
+                isValid = false;
+            }
+
+            // Mobile Validation
+            const mobileRegex = /^[0-9]{10}$/;
+            if (!mobileRegex.test(document.getElementById('mobile').value)) {
+                document.getElementById('mobileError').textContent = 'Please enter a valid 10-digit mobile number.';
+                isValid = false;
+            }
+
+            // Address Validation
+            if (document.getElementById('address').value.trim() === '') {
+                document.getElementById('addressError').textContent = 'Address is required.';
+                isValid = false;
+            }
+
+            // Age Validation
+            if (document.getElementById('age').value <= 0) {
+                document.getElementById('ageError').textContent = 'Please enter a valid age.';
+                isValid = false;
+            }
+
+            // Hobbies Validation
+            if (document.getElementById('hobbies').value.trim() === '') {
+                document.getElementById('hobbiesError').textContent = 'Hobbies are required.';
+                isValid = false;
+            }
+
+            // Country Validation
+            if (document.getElementById('country').value === '') {
+                document.getElementById('countryError').textContent = 'Please select your country.';
+                isValid = false;
+            }
+
+            // Email Validation
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(document.getElementById('email').value)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Message Validation
+            if (document.getElementById('message').value.trim() === '') {
+                document.getElementById('messageError').textContent = 'Message is required.';
+                isValid = false;
+            }
+
+            // Show confirmation message if form is valid
+            if (isValid) {
+                document.getElementById('confirmationMessage').textContent = 'Your message has been sent successfully!';
+                document.getElementById('contactForm').reset();  // Optionally reset the form
+            }
+            // Show confirmation message if form is valid
+if (isValid) {
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    confirmationMessage.textContent = 'Your message has been sent successfully!';
+    confirmationMessage.style.display = 'block'; // عرض الرسالة
+    confirmationMessage.scrollIntoView({ behavior: 'smooth' }); // تمرير الصفحة إلى الرسالة
+    setTimeout(() => {
+        confirmationMessage.style.display = 'none'; // إخفاء الرسالة بعد 5 ثوانٍ
+    }, 5000);
+    document.getElementById('contactForm').reset(); // إعادة تعيين النموذج
+}
+
+        });
+    </script>
+
+</body>
+</html>

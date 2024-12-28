@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfume Store - Home</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            border: 5px solid #b76e79; /* Pink border */
+
+        }
+
+        /* Header Section */
+        header {
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 5px solid #b76e79; /* Pink border */
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #4a4a4a;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            padding: 10px 15px; /* Adding padding for better button appearance */
+            border-radius: 5px; /* Rounded corners for the buttons */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transitions */
+        }
+
+        nav ul li a:hover {
+            color: #fff; /* Change text color on hover */
+            background-color: #b76e79; /* Change background color on hover */
+            transform: translateY(-3px); /* Slight lift effect */
+        }
+
+        
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 800px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .hero-content {
+        position: relative;
+        color: #fff;
+        z-index: 1;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero h1 {
+        font-size: 3.8rem;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .hero a {
+        display: inline-block;
+        background-color: #b76e79;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: background 0.3s, transform 0.3s;
+    }
+
+    .hero a:hover {
+        background-color: #9a5b65;
+        transform: translateY(-3px);
+    }
+
+
+ .text-background {
+        background: rgba(0, 0, 0, 0.6); /* خلفية نصف شفافة */
+        padding: 20px 30px;
+        border-radius: 10px; /* حواف دائرية */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* تحسين الوضوح باستخدام الظلال */
+    }
+
+
+
+        /* Featured Products */
+        .featured {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .featured h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 products per row */
+            gap: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+        }
+
+        .product img {
+            width: 100%; /* عرض الصورة يتناسب مع عرض الحاوية */
+            height: 800px; /* زيادة أكبر في ارتفاع الصورة */
+            object-fit: cover; /* يجعل الصورة تتناسب داخل الإطار مع اقتصاص الزوائد */
+            border-radius: 5px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease; /* تأثير تكبير سلس عند التمرير */
+        }
+
+        .product:hover img {
+            transform: scale(1.1); /* تكبير بسيط عند التمرير */
+        }
+
+        .product h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #4a4a4a;
+        }
+
+        .product p {
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .product .price {
+            font-size: 1.3rem;
+            color: #b76e79;
+            margin-bottom: 10px;
+        }
+
+        .product .old-price {
+            text-decoration: line-through;
+            color: #aaa;
+            margin-right: 10px;
+        }
+
+        .product .discount-tag {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 3px 8px; /* Reduced padding */
+            font-size: 0.9rem; /* Smaller font size */
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .product a {
+            display: inline-block;
+            background-color: #b76e79;
+            color: #fff;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #b76e79;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .cart {
+        position: fixed;
+        bottom: 20px; /* المسافة من الأسفل */
+        right: 20px; /* المسافة من اليمين */
+        background-color: #b76e79;
+        border-radius: 50%; /* جعل الشكل دائري */
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        z-index: 9999; /* للتأكد من أن السلة فوق المحتوى الآخر */
+    }
+
+    .cart-icon {
+        font-size: 2rem;
+        color: white;
+    }
+
+    .cart-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: red;
+        color: white;
+        font-size: 1rem;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        /* Intro Section Design */
+/* Intro Section Design */
+.intro-section {
+    background: linear-gradient(145deg, #f7f7f7, #e0e0e0); /* Subtle gradient background */
+    padding: 50px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+    font-weight: 400;
+    text-align: center;
+    letter-spacing: 0.5px;
+    padding: 0 20px;
+}
+
+.explore-btn {
+    background-color: #b76e79;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.explore-btn:hover {
+    background-color: #9a5b65;
+    transform: translateY(-3px); /* Lift effect */
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 30px 20px;
+}
+
+.product {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid #b76e79; /* Pink border */
+
+}
+
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.product:hover img {
+    transform: scale(1.1);
+}
+
+.product h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #4a4a4a;
+}
+
+.product p {
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.product .price {
+    font-size: 1.3rem;
+    color: #b76e79;
+    margin-bottom: 10px;
+}
+
+.product .old-price {
+    text-decoration: line-through;
+    color: #aaa;
+    margin-right: 10px;
+}
+
+.product .discount-tag {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    border-bottom: 4px solid #b76e79; /* زيادة سمك الحد ليظهر بشكل أكثر وضوحًا */
+    padding-bottom: 5px; /* زيادة الحشو أسفل النص لتحسين ظهور الحد */
+    font-weight: bold; /* جعل النص عريضًا لجذب الانتباه */
+    transition: color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s; /* تأثيرات انتقالية سلسة */
+}
+
+a:hover {
+    color: #fff; /* تغيير لون النص إلى الأبيض لتوفير تباين أفضل */
+    background-color: #b76e79; /* تغيير الخلفية إلى اللون الوردي عند التمرير */
+    border-bottom: 4px solid #9a5b65; /* جعل الحدود أكثر وضوحًا مع لون أغمق عند التمرير */
+    transform: translateY(-3px); /* إضافة تأثير رفع بسيط لإبراز الرابط */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* إضافة ظل للصندوق لإظهاره بشكل أكبر */
+}
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    white-space: nowrap; /* يمنع النص من الالتفاف */
+}
+
+
+
+       /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const video = document.getElementById('hero-video');
+        video.muted = false;
+
+        // محاولة تشغيل الفيديو تلقائيًا مع الصوت.
+        video.play().catch(error => {
+            console.error("Playback failed: ", error);
+        });
+    });
+</script> 
+   
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo" style="display: flex; align-items: center;">
+                <img src="https://png.pngtree.com/png-vector/20240129/ourmid/pngtree-pink-bottle-of-perfume-png-image_11513995.png" alt="Perfume Logo" style="width: 100px; height: 100px; margin-right: 15px;">
+                <span style="font-size: 3rem; font-weight: bold; color: #b76e79;">Perfume Store</span>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="product.html">Products</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+   
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop class="hero-video">
+            <source src="https://v1.pinimg.com/videos/mc/720p/81/3c/76/813c76c5ae04a10ae00d29b518ff7a78.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Welcome to the Luxury Perfume Store</h1>
+            <p>Discover the finest fragrances crafted for your elegance and charm.</p>
+            <a href="product.html">Explore Collection</a>
+        </div>
+    </section>
+
+    <section class="featured">
+        <!-- New Shortened Paragraph with Stylish Design -->
+        <div class="intro-section">
+            <div class="intro-content">
+                <p class="intro-text">
+                    Discover the world of luxury perfumes at Perfume Store. Each fragrance is crafted to embody elegance, confidence, and allure, with the finest ingredients from around the world. From floral freshness to warm spices, find the perfect scent that defines your unique essence. Indulge in a luxury experience with every spray.
+                </p>
+            </div>
+        </div>
+    
+    
+        <h2>Featured Perfumes</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/736x/a8/64/aa/a864aa2deb2a6c885c773b78e0db4863.jpg" alt="Perfume 1">
+                <h3>Floral Essence</h3>
+                <p>A soothing blend of floral aromas.</p>
+                <div class="price">
+                    <span class="old-price">$80.00</span>
+                    $60.00
+                </div>
+                <div class="discount-tag">25% OFF</div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/736x/7e/f2/66/7ef266fcf031375ac8cefe5f2d8523c7.jpg" alt="Perfume 2">
+                <h3>Amber Spice</h3>
+                <p>Spicy and exotic notes for every occasion.</p>
+                <div class="price">
+                    <span class="old-price">$90.00</span>
+                    $70.00
+                </div>
+                <div class="discount-tag">22% OFF</div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/474x/60/e4/7d/60e47dcdc48d09e4a747bac435058b26.jpg" alt="Perfume 3">
+                <h3>Citrus Bloom</h3>
+                <p>A refreshing burst of citrus and fresh flowers.</p>
+                <div class="price">
+                    <span class="old-price">$75.00</span>
+                    $55.00
+                </div>
+                <div class="discount-tag">30% OFF</div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/236x/e3/04/cc/e304cc74f395a1cba6593fcf242f9033.jpg" alt="Perfume 4">
+                <h3>Ocean Breeze</h3>
+                <p>A cool and refreshing scent of the ocean.</p>
+                <div class="price">
+                    <span class="old-price">$85.00</span>
+                    $65.00
+                </div>
+                <div class="discount-tag">24% OFF</div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/236x/db/bc/fc/dbbcfc1f163cbf1256cda735f1a8c7a2.jpg" alt="Perfume 5">
+                <h3>Vanilla Dream</h3>
+                <p>Sweet and warm vanilla with a hint of spice.</p>
+                <div class="price">
+                    <span class="old-price">$95.00</span>
+                    $72.00
+                </div>
+                <div class="discount-tag">24% OFF</div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product">
+                <img src="https://i.pinimg.com/736x/de/7b/57/de7b57584560ed42bdd66f05c683e9cf.jpg" alt="Perfume 6">
+                <h3>Exotic Oud</h3>
+                <p>Deep and rich fragrance with notes of oud wood.</p>
+                <div class="price">
+                    <span class="old-price">$110.00</span>
+                    $85.00
+                </div>
+                <div class="discount-tag">23% OFF</div>
+            </div>
+        </div>
+    </section>
+
+  
+<!-- Footer -->
+<footer style="background-color: #333; color: #fff; padding: 20px; text-align: center; margin-top: 30px ;border-top:5px solid #b76e79;">
+    <div style="margin-bottom: 15px;">
+        <p style="margin: 5px 0;">📍 Address: 123 Fragrance Lane, New York, NY 10001</p>
+        <p style="margin: 5px 0;">📞 Phone: +1 (123) 456-7890</p>
+        <p style="margin: 5px 0;">✉️ Email: <a href="mailto:support@perfumestore.com" style="color: #b76e79; text-decoration: none;">support@perfumestore.com</a></p>
+    </div>
+    <div>
+        <a href="https://facebook.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://www.freeiconspng.com/uploads/vector-logos-high-resolution-logos-logo-designs-facebook-icon-vector-6.png" alt="Facebook" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://twitter.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.x3D8JgIPCemZ5VSA8QQU0AHaHa&pid=Api&P=0&h=220" alt="Twitter" style="width: 24px; height: 24px;">
+        </a>
+        <a href="https://instagram.com" style="margin: 0 10px; color: #fff; text-decoration: none;">
+            <img src="https://www.pngkey.com/png/full/283-2831746_insta-icon-instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+        </a>
+       
+    </div>
+    <div style="margin-top: 15px; border-top: 1px solid #444; padding-top: 10px;">
+        <p>&copy; 2024 Perfume Store. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // دالة لإضافة منتج إلى السلة
+        function addToCart(product) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${product.name} has been added to the cart!`);
+        }
+
+        // ربط الأزرار بإضافة المنتج إلى السلة
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const product = {
+                    name: button.dataset.name,
+                    price: button.dataset.price,
+                    image: button.dataset.image,
+                };
+                addToCart(product);
+            });
+        });
+    });
+</script>
+</body>
+
+
+</body>
+</html>
